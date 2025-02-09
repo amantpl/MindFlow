@@ -1,13 +1,18 @@
 // NotesApp Class
 class NotesApp {
     constructor() {
-      this.notes = JSON.parse(localStorage.getItem('notes')) || [];
-      this.currentNoteId = null;
-      this.isDarkMode = localStorage.getItem('darkMode') === 'true';
-      this.setupEventListeners();
-      this.renderNotes();
-      this.applyTheme();
+        try {
+            this.notes = JSON.parse(localStorage.getItem('notes')) || [];
+        } catch (error) {
+            this.notes = [];  // Reset if JSON is invalid
+        }
+        this.currentNoteId = null;
+        this.isDarkMode = localStorage.getItem('darkMode') === 'true';
+        this.setupEventListeners();
+        this.renderNotes();
+        this.applyTheme();
     }
+    
   
     setupEventListeners() {
       // Theme toggle
