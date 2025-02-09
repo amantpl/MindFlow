@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Productivity Tracker</title>
+    <link rel="stylesheet" href="../ProdTracker/tracker.css">
+    <link rel="stylesheet" href="../HomePage/style.css">
+</head>
+<body>
+    <header class="header"> 
+        <nav class="nav container">
+            <div class="logo animate-slide-down">
+                <span>MindFlow</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link animate-slide-down" style="animation-delay: 400ms;">Home</a></li>
+                    <li><a href="./notes.html" class="nav-link animate-slide-down" style="animation-delay: 100ms;">Notes</a></li>
+                    <li><a href="./calendar.html" class="nav-link animate-slide-down" style="animation-delay: 200ms;">Calendar</a></li>
+                    <li><a href="./todo.html" class="nav-link animate-slide-down" style="animation-delay: 300ms;">Todo</a></li>
+                    <li><a href="./tracker.html" class="nav-link animate-slide-down" style="animation-delay: 300ms;">Productivity Tracker</a></li>
+                    <li><a href="./mindmap.html" class="nav-link animate-slide-down" style="animation-delay: 400ms;">Mindmap</a></li>
+                </ul>
+                <button class="theme-toggle animate-slide-down" id="themeToggle" aria-label="Toggle theme" style="animation-delay: 500ms;">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+    <div class="container" id="not">
+        <div class="hour-header" id="hour-header">
+            <div class="header-content">
+                <div class="head">
+                    <h1>Daily Productivity Tracker</h1>
+                </div>
+                <div class="intro">
+                    <h2>Track Every Hour, Maximize Your Day</h2>
+                    <p>Research shows that people who track their time are 80% more likely to achieve their goals. Start tracking your day:</p>
+                    <ul>
+                        <li>✨ Identify and eliminate time-wasting activities</li>
+                        <li>📝 Focus on high-impact tasks</li>
+                        <li>🎯 Make data-driven decisions about your time</li>
+                        <li>⚡ Boost your daily productivity score</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="productivity-circle">
+                <div class="circle">
+                    <div class="circle-inner">
+                        <h2>Today's Score</h2>
+                        <span id="productivityScore">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <section class="tasks-section">
+                <div class="table-container">
+                    <table id="taskTable">
+                        <thead>
+                            <tr>
+                                <th>Time Slot</th>
+                                <th>Task Description</th>
+                                <th>Urgent?</th>
+                                <th>Important?</th>
+                            </tr>
+                        </thead>
+                        <tbody id="taskTableBody">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="right-panel">
+                <section class="matrix-section">
+                    <h2>Urgency-Importance Matrix</h2>
+                    <div class="matrix-grid">
+                        <div class="matrix-cell urgent-important">
+                            <h3>Urgent & Important</h3>
+                            <span class="percentage">0%</span>
+                        </div>
+                        <div class="matrix-cell urgent-not-important">
+                            <h3>Urgent & Not Important</h3>
+                            <span class="percentage">0%</span>
+                        </div>
+                        <div class="matrix-cell not-urgent-important">
+                            <h3>Not Urgent & Important</h3>
+                            <span class="percentage">0%</span>
+                        </div>
+                        <div class="matrix-cell not-urgent-not-important">
+                            <h3>Not Urgent & Not Important</h3>
+                            <span class="percentage">0%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="task-distribution">
+                    <h2>Task Distribution</h2>
+                    <div class="distribution-list">
+                        <p>Total Hours Recorded: <span id="totalHours">0</span></p>
+                        <div>
+                            <p>Urgent Tasks: <span id="urgentYes">0%</span></p>
+                            <p>Non-Urgent Tasks: <span id="urgentNo">0%</span></p>
+                        </div>
+                        <div>
+                            <p>Important Tasks: <span id="importantYes">0%</span></p>
+                            <p>Non-Important Tasks: <span id="importantNo">0%</span></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="feedback-section">
+                    <h2>Daily Feedback</h2>
+                    <div class="feedback-container">
+                        <div class="feedback-item">
+                            <select id="satisfaction">
+                                <option value="">Do I feel happy with how the day went?</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="feedback-item">
+                            <textarea id="feedbackText" rows="4" placeholder="(Optional) Why do you feel this way?"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="saveData" class="btn primary">💾 Save Data</button>
+                        <button id="viewPastData" class="btn secondary">📊 View Past Data</button>
+                        <button id="clearAll" class="btn danger">🗑️ Clear All</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Past Data -->
+    <div id="pastDataModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Past Records</h2>
+            <div id="pastDataContent"></div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Action</h2>
+            <p id="confirmationMessage"></p>
+            <div class="modal-buttons">
+                <button id="confirmYes" class="btn primary">Yes</button>
+                <button id="confirmNo" class="btn secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../ProdTracker/tracker.js"></script>
+</body>
+</html>

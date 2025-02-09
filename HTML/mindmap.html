@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Map Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../MindMap/mindmap.css">
+    <link rel="stylesheet" href="../HomePage/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo animate-slide-down">
+                <span>MindFlow</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link animate-slide-down" style="animation-delay: 400ms;">Home</a></li>
+                    <li><a href="./notes.html" class="nav-link animate-slide-down" style="animation-delay: 100ms;">Notes</a></li>
+                    <li><a href="./calendar.html" class="nav-link animate-slide-down" style="animation-delay: 200ms;">Calendar</a></li>
+                    <li><a href="./todo.html" class="nav-link animate-slide-down" style="animation-delay: 300ms;">Todo</a></li>
+                    <li><a href="./tracker.html" class="nav-link animate-slide-down" style="animation-delay: 300ms;">Productivity Tracker</a></li>
+                    <li><a href="./mindmap.html" class="nav-link animate-slide-down" style="animation-delay: 400ms;">Mindmap</a></li>
+                </ul>
+                <button class="theme-toggle animate-slide-down" id="toggleTheme" aria-label="Toggle theme" style="animation-delay: 500ms;">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+<main id="not">
+    <div class="toolbar">
+        <div class="toolbar-group">
+            <button id="createNewMap" title="Create New Mind Map">
+                <i class="fas fa-plus"></i> New Map
+            </button>
+            <button id="saveMap" title="Save Mind Map">
+                <i class="fas fa-save"></i> Save
+            </button>
+            <button id="savedMapsBtn" title="View Saved Maps">
+                <i class="fas fa-folder"></i> My Maps
+            </button>
+        </div>
+        
+        <div class="toolbar-group text-controls">
+            <button data-command="bold" title="Bold">
+                <i class="fas fa-bold"></i>
+            </button>
+            <button data-command="italic" title="Italic">
+                <i class="fas fa-italic"></i>
+            </button>
+            <button data-command="underline" title="Underline">
+                <i class="fas fa-underline"></i>
+            </button>
+            <select id="fontSize" title="Font Size">
+                <option value="12px">12px</option>
+                <option value="14px" selected>14px</option>
+                <option value="16px">16px</option>
+                <option value="18px">18px</option>
+                <option value="20px">20px</option>
+            </select>
+            <select id="fontFamily" title="Font Family">
+                <option value="Segoe UI">Segoe UI</option>
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+            </select>
+            <input type="color" id="textColor" value="#000000" title="Text Color">
+        </div>
+
+        <div class="toolbar-group">
+            <button id="panTool" title="Pan Tool">
+                <i class="fas fa-hand-paper"></i> Palm
+            </button>
+        </div>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="connectionCanvas"></canvas>
+        <div id="mindMapContainer"></div>
+    </div>
+
+    <div class="saved-maps">
+        <h3>Saved Mind Maps</h3>
+        <div id="savedMapsList"></div>
+    </div>
+</main>
+
+    <script src="../MindMap/mindmap.js"></script>
+</body>
+</html>
